@@ -1,0 +1,13 @@
+{% load dashboard_tags %}
+<div class="col-md-3">
+    <div class="col justify-content-center">
+        <h2 class="text-center py-4">My Home</h2>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            {% get_places as places %}
+            {% for item in places %}
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+               aria-controls="v-pills-home" aria-selected="true">{{ item.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
