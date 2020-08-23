@@ -3,20 +3,26 @@
 
 {% block values %}
 <div class="row justify-content-start ">
+    {% if place.temperature_device %}
     <div class="col-lg-3 col-md-12 box box-1">
         <img src="{% static 'img/temp.png' %}" alt="" class="box-image">
         <h4 class="box-text">Temperature</h4>
         <h3 class="box-text">{{ temperature.value }} C°</h3>
     </div>
+    {% endif %}
+    {% if place.humidity_device %}
     <div class="col-lg-3 col-md-12 box box-2">
         <img src="{% static 'img/humidity.png' %}" alt="" class="box-image">
         <h4 class="box-text">Humidity</h4>
         <h3 class="box-text">{{ humidity.value }} %</h3>
     </div>
+    {% endif %}
+    {% if place.pressure_device %}
     <div class="col-lg-3 col-md-12 box box-3">
         <img src="{% static 'img/pressure.png' %}" alt="" class="box-image">
         <h4 class="box-text">Pressure</h4>
         <h3 class="box-text">{{ pressure.value }} Hm</h3>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

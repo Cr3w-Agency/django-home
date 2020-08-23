@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 
 
 """ Temperature """
@@ -47,6 +47,11 @@ class Pressure(models.Model):
 
 class Place(models.Model):
     name = models.CharField(max_length=150, verbose_name="Наименование")
+    slug = models.SlugField(max_length=150, verbose_name='URL', unique=True)
+    temperature_device = models.BooleanField(default=False, verbose_name="Датчик температуры")
+    humidity_device = models.BooleanField(default=False, verbose_name="Датчик влажности")
+    pressure_device = models.BooleanField(default=False, verbose_name="Датчик давления")
+
 
     class Meta:
         verbose_name = "Комната"
@@ -55,3 +60,11 @@ class Place(models.Model):
 
     def __str__(self):
         return self.name
+
+    def _get_unique_slug(self):
+        slug = slugify(self.name)
+        unique_slug = slug
+        num = 1
+
+    def get_absolute_url(self):
+        return self.slug

@@ -26,8 +26,14 @@ class PressureAdmin(admin.ModelAdmin):
         fields = '__all__'
         list_filter = ('created_at',)
 
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name')
+    class Meta:
+        model = Place
+        fields = ('pk', 'name')
+
 
 admin.site.register(Temperature, TemperatureAdmin)
 admin.site.register(Humidity, HumidityAdmin)
 admin.site.register(Pressure, PressureAdmin)
-admin.site.register(Place)
+admin.site.register(Place, PlaceAdmin)
