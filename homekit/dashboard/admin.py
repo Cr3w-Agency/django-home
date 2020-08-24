@@ -28,6 +28,7 @@ class PressureAdmin(admin.ModelAdmin):
 
 class PlaceAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name')
+    prepopulated_fields = {'slug':('name',)}
     class Meta:
         model = Place
         fields = ('pk', 'name')

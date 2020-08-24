@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('temperature/', TemperatureListView.as_view()),
-    path('temperature/last/', TemperatureLastView.as_view()),
+    path('temperature/', TemperatureView.as_view()),
+    path('pressure/', PressureView.as_view()),
+    path('humidity/', HumidityView.as_view())
 ]

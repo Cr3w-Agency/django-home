@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 
 """ Temperature """
@@ -56,15 +57,10 @@ class Place(models.Model):
     class Meta:
         verbose_name = "Комната"
         verbose_name_plural = "Комнаты"
-        ordering = ['name']
+        ordering = ['pk']
 
     def __str__(self):
         return self.name
 
-    def _get_unique_slug(self):
-        slug = slugify(self.name)
-        unique_slug = slug
-        num = 1
-
     def get_absolute_url(self):
-        return self.slug
+        return reverse('place_view', kwargs={'pk': self.pk})
