@@ -54,6 +54,7 @@ class Place(models.Model):
     pressure_device = models.BooleanField(default=False, verbose_name="Датчик давления")
 
 
+
     class Meta:
         verbose_name = "Комната"
         verbose_name_plural = "Комнаты"

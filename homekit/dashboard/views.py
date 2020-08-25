@@ -60,3 +60,4 @@ class PlaceListView(ListView):
 
     def get_queryset(self):
         return Place.objects.get(pk=self.kwargs['pk'])
+    """ SMT """

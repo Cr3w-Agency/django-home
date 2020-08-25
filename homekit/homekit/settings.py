@@ -26,7 +26,7 @@ SECRET_KEY = 'ygea6g7sisv91%9i&6kd-2#^58#w!ow($_tl50q3xl7%p^6&^c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cr3whome.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 # REST_FRAMEWORK = {
@@ -82,10 +83,15 @@ WSGI_APPLICATION = 'homekit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+'postgres://gizphpevrrbrit:036c76a6184548ae8b6ff95c7b3f39e94257f9d6371197a58a62c1962efdba6f@ec2-54-161-150-170.compute-1.amazonaws.com:5432/dcrd51b8akgm4g'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcrd51b8akgm4g',
+        'HOST': 'ec2-54-161-150-170.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'gizphpevrrbrit',
+        'PASSWORD': '036c76a6184548ae8b6ff95c7b3f39e94257f9d6371197a58a62c1962efdba6f',
     }
 }
 
